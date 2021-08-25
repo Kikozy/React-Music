@@ -1,0 +1,26 @@
+.container {
+    margin: auto;
+    width: 100%;
+    max-width: 375px;
+    height: 100vh;
+    background-color: rgba(218, 218, 218, 0.781);
+    .containerTitle {
+        color: white;
+        font-size: 16px;
+        text-align: center;
+        height: 35px;
+        line-height: 35px;
+    }
+    .tabBar {
+        display: flex;
+        height: 35px;
+        .item {
+            height: 100%;
+            width: 100%;
+            line-height: 35px;
+            flex: 1;
+            text-align: center;
+            color: white;
+        }
+    }
+}
