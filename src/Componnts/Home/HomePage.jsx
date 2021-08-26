@@ -1,14 +1,16 @@
 //导入仓库
 import { Component} from 'react'
 import store from '../../store/index'
-
+import ListItem from './ListItem'
 
 
 class HomePage extends Component {
     constructor(props){
         super(props)
         this.state = {
-            str: ''
+            str: '',
+            inputValue:'',
+            list: []
         }
     }
     componentDidMount(){
@@ -19,14 +21,17 @@ class HomePage extends Component {
         
     }
     awaitStore = ()=>{
-        this.setState({
-            str: store.getState().str
+        this.setState(store.getState())
+    }
+    sendAddList = () => {
+        store.dispatch({
+            type: 'addList'
         })
     }
-    sendChangeStr = () => {
+    sendChangeInputValue=(e)=>{
         store.dispatch({
-            type: 'changeStr',
-            value: '改变成功了！'
+            type: 'changeInputValue',
+            value: e.target.value
         })
     }
 
@@ -35,7 +40,10 @@ class HomePage extends Component {
             <>
                 <h1>HomePage</h1>
                 <p>{this.state.str}</p>
-                <button onClick={this.sendChangeStr}>改变一下?</button>
+                <input type="text" value={this.state.inputValue} onChange={(e)=>this.sendChangeInputValue(e)}/>
+                <button onClick={this.sendAddList}>添加</button>
+                {this.state.list.map((item,index) => <ListItem value={{index,item}} key={index+item}></ListItem>)}
+                
             </>
         )
     }

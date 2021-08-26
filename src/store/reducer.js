@@ -2,8 +2,8 @@
     1. 定义默认数据
 */
 const defaultState = {
-    num: '',
-    list: [1,2,3],
+    inputValue: '',
+    list: [],
     str: '空空如也'
 }
 
@@ -17,8 +17,16 @@ export default (state=defaultState,action)=>{
     let newState = JSON.parse(JSON.stringify(state))
     //寻找需要的事件
     switch(action.type){
-        case 'changeStr':
-            newState.str = action.value
+        case 'changeInputValue':
+            newState.inputValue = action.value
+            break
+        case 'addList':
+            newState.list.push(newState.inputValue)
+            newState.inputValue = ''
+            break
+        case 'delList':
+            console.log(action)
+            newState.list.splice(action.value,1)
             break
         default:
             break

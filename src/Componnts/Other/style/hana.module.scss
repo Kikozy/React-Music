@@ -1,0 +1,40 @@
+.hanaShop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .shopTitle{
+        color: pink;
+    }
+    .newHanaInput{
+        box-sizing: border-box;
+        margin-top: 10px;
+        padding: 0 10px;
+        width: 100%;
+        max-width: 300px;
+        height: 35px;
+        outline: none;
+        border: 2px solid rgb(236, 138, 154);
+        background-color: rgba(241, 213, 213, 0.459);
+        font: bold 16px/35px '微软雅黑';
+        color: white;
+    }
+    .addHanaBtn {
+        margin-top: 10px;
+        width: 100%;
+        max-width: 100px;
+        height: 40px;
+        background-color: pink;
+        outline: none;
+        border: none;
+        font: bold 16px/40px '微软雅黑';
+        color: rgb(218, 53, 53);
+    }
+    .hanaList {
+        margin-top: 10px;
+    }
+    .hanaItem {
+        margin: 3px 0;
+        font: 16px '微软雅黑';
+        color: rgb(73, 9, 9);
+    }
+}
