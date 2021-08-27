@@ -1,0 +1,21 @@
+.container {
+    width: 100%;
+    max-width: 375px;
+    .musicHeader {
+        background-color: green;
+        text-align: center;
+    }
+    .tabBar {
+        display: flex;
+        .tabBarList {
+            display: flex;
+            height: 100%;
+            width: 100%;
+            .tabBarItem {
+                flex: 1;
+                text-align: center;
+                color: white;
+            }
+        }
+    }
+}

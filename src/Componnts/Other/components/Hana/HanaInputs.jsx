@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import {HanaContext} from '../../OtherPage'
 import style from '../../style/hana.module.scss'
-function Inputs() {
+function HanaInputs() {
     const {state,dispatch} = useContext(HanaContext)
     return(
         <>
@@ -19,4 +19,4 @@ function Inputs() {
     )
 }
 
-export default Inputs
+export default HanaInputs

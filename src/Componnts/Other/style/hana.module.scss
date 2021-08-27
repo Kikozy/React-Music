@@ -34,7 +34,19 @@
     }
     .hanaItem {
         margin: 3px 0;
-        font: 16px '微软雅黑';
-        color: rgb(73, 9, 9);
+        .hanaNa {
+            font: 16px '微软雅黑';
+            color: rgb(73, 9, 9);
+        }
+        .addBtn {
+            margin-left: 10px;
+            outline: none;
+            border: none;
+            background-color: pink;
+            width: 40px;
+            height: 25px;
+            font: bold 14px/25px '微软雅黑';
+            color: purple;
+        }
     }
 }
