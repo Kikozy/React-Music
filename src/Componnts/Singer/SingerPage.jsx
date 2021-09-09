@@ -1,9 +1,9 @@
 
-import Player from "./Player"
+
 function SingerPage() {
     return(
         <div>
-            <Player></Player>
+            <h1>Singer</h1>
         </div>
     )
 }

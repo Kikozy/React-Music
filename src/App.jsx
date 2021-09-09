@@ -1,34 +1,68 @@
-import {Router,Route,Switch} from 'react-router-dom'
-import { createBrowserHistory } from 'history';
-import HomePage from './Componnts/Home/HomePage'
-import Login from './Componnts/Login/Login'
-import OtherPage from './Componnts/Other/OtherPage';
-import style from './style/module/app.module.scss'
-function App(){
-    const history = createBrowserHistory()
+import { createContext ,useReducer, useEffect} from "react"
+import { Switch,Route ,BrowserRouter,Link} from "react-router-dom"
+import { createBrowserHistory } from "history"
+import { playerReducer } from "./store/reducer_hook"
+import PlayerBar from './Componnts/Player/PlayerBar'
+import Player from "./Componnts/Player/Player"
+import HomePage from "./Componnts/Home/HomePage"
+import SingerPage from './Componnts/Singer/SingerPage'
+
+export const playerContent = createContext()
+const history = createBrowserHistory()
+
+function App() {
+    const {playerState,playerDispatch} = usePlayerStore()
+    useEffect(()=>{
+        console.log(history)
+    },[])
     return(
-        <>
-            <div className={style.container}>
-                <p className={style.containerTitle}>什么东西哦</p>
-                <ul className={style.tabBar}>
-                    <li className={style.item} onClick={()=>history.push('/login')}>redux</li>
-                    <li className={style.item} onClick={()=>history.push('/otherpage')}>useReducer</li>
-                    <li className={style.item}>其他</li>
-                    <li className={style.item}>其他</li>
-                </ul>
-                <div className={style.content}>
-                    <Router history={history}>
-                        <Switch>
-                            <Route exact path="/" component={HomePage} ></Route>
-                            <Route path="/login" component={Login}></Route>
-                            <Route path="/otherpage" component={OtherPage}></Route>
-                            <Route render={()=><h1 style={{'color':'red'}}>NMSL</h1>}></Route>
-                        </Switch>
-                    </Router>
-                </div>
-            </div>
-        </>
+        <div className="app">
+            <main className='content'>
+                <BrowserRouter history={history}>
+                    <Switch>
+                        <Route path='/' exact component={HomePage}></Route>
+                        <Route path='/singerpage' component={SingerPage}></Route>
+                        <Route render={()=><h1>404</h1>} ></Route>
+                    </Switch>
+                </BrowserRouter>
+            </main>
+            <footer>
+                
+                <playerContent.Provider value={{audioDom,playerState,playerDispatch}}>
+                    <Player></Player>
+                    <PlayerBar></PlayerBar>
+                </playerContent.Provider>
+            </footer>
+        </div>
     )
 }
+let audioDom = document.createElement('audio')
+audioDom.src = 'http://uhv.demos.cn.vc/uploads/voices/20210811/fb9e03183f90f6f8e910b0ce8e8856ec.mp3'
+
+function usePlayerStore() {
+    const [playerState,playerDispatch] = useReducer(playerReducer,{
+        audioDom: {},
+        //播放状态 播放/暂停
+        play: false,
+        //图标
+        playIcon: {play:'icon-bofang-tongyong',pause: 'icon-ai07'},
+        //当前播放歌曲信息
+        nowSong: {
+            name: 'Release My Soul',
+            author: '澤野弘之',
+            link: ''
+        },
+        //歌单
+        songList: [
+            {name: '喵呜',link: 'http://uhv.demos.cn.vc/uploads/voices/20210811/fb9e03183f90f6f8e910b0ce8e8856ec.mp3'}
+        ],
+        //全屏播放器
+        playerFull: false
+    })
+    return {playerState , playerDispatch}
+}
+
 
 export default App
+
+

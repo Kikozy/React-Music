@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import "./style/base.scss"
 import reportWebVitals from './reportWebVitals';
-import Music from './Music';
+import App from './App';
+// import Music from './Music';
 
 ReactDOM.render(
-  <Music />,
+  <App />,
   document.getElementById('root')
 );
 reportWebVitals();

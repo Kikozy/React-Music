@@ -11,7 +11,6 @@ class ListItem extends Component{
     delList = (index) => {
         store.dispatch({type: 'delList',value: index})
     }
- 
     render(){
         return(
             <div>

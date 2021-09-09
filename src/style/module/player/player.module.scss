@@ -1,0 +1,134 @@
+.playerPage {
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    * {
+        box-sizing: border-box;
+    }
+    button {
+        outline: 0;
+        border: 0;
+    }
+    .headArea {
+        width: 100vw;
+        height: 30px;
+        display: flex;
+        .closeFullPlayerBtn {
+            background-color: red;
+            height: 100%;
+            width: 13.3333vw;
+
+        }
+        .songInfo {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 73.3333vw;
+            .songName {
+                color: white;
+                font-size: 16px;
+                width: 100%;
+                text-align: center;
+            }
+            .songAuthor {
+                color: rgb(179, 176, 176);
+                font-size: 14px;
+                width: 100%;
+                text-align: center;
+            }
+        }
+        .fenxiangBtn {
+            height: 100%;
+            width: 13.3333vw;
+            background-color: red;
+        }
+    }
+    .content {
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        box-sizing: border-box;
+        padding: 0 3.3vw;
+        .songImgArea {
+            margin-top: 14.7777vh;
+            height: 74.6666vw;
+            width: 74.6666vw;
+            border-radius: 50%;
+            overflow: hidden;
+            .songImg {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .closeFullPlayerBtn {
+            height: 30px;
+        }
+    
+        .playAndPuaseBtn {
+            height: 30px;
+        }
+        //按钮区域
+        .btnArea {
+            margin-top: 100px;
+            button {
+                background-color: transparent;
+                color: white;
+                height: 28px;
+                width: 28px;
+                span {
+                    font-size: 28px;
+                }
+            }
+        }
+        //控制区域
+        .controllerArea {
+            width: 100%;
+            //进度条区域
+            .progressBarArea {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .nowTime {
+                    color: white;
+                    font-size: 14px;
+                }
+                .progressBox {
+                    width: 260px;
+                    height: 2px;
+                    background-color: rgb(204, 201, 201);
+                    .progressBar {
+                        width: 10%;
+                        height: 100%;
+                        background-color: red;
+                    }
+                }
+                .totalTime {
+                    color: white;
+                    font-size: 14px;
+                }
+            }
+            //按钮区域
+            .btnArea {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                button {
+                    width: 30px;
+                    height: 30px;
+                }
+                .playBtn {
+                    width: 16vw;
+                    height: 7.3891vh;
+                    border-radius: 50%;
+                    border: 0.6vw solid #ffffff;
+                }
+            }
+        }
+    }
+
+}
