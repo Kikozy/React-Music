@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "1494634",
+      "name": "列表",
+      "font_class": "liebiao",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
       "icon_id": "3216049",
       "name": "铃声",
       "font_class": "icon--",
@@ -18,6 +25,13 @@
       "font_class": "liuyan",
       "unicode": "e60d",
       "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "11808714",
+      "name": "播放",
+      "font_class": "icon_play",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
     },
     {
       "icon_id": "12687046",
@@ -34,11 +48,25 @@
       "unicode_decimal": 58971
     },
     {
-      "icon_id": "16942344",
-      "name": "播放-通用",
-      "font_class": "bofang-tongyong",
-      "unicode": "e60f",
-      "unicode_decimal": 58895
+      "icon_id": "16648578",
+      "name": "循环",
+      "font_class": "xunhuan",
+      "unicode": "e61f",
+      "unicode_decimal": 58911
+    },
+    {
+      "icon_id": "18636095",
+      "name": "下一曲",
+      "font_class": "xiayiqu",
+      "unicode": "e63e",
+      "unicode_decimal": 58942
+    },
+    {
+      "icon_id": "18636112",
+      "name": "上一曲",
+      "font_class": "shangyiqu",
+      "unicode": "e63f",
+      "unicode_decimal": 58943
     },
     {
       "icon_id": "21151020",
@@ -46,6 +74,13 @@
       "font_class": "zantingtingzhi",
       "unicode": "e65a",
       "unicode_decimal": 58970
+    },
+    {
+      "icon_id": "23466798",
+      "name": "更多",
+      "font_class": "caozuo",
+      "unicode": "e659",
+      "unicode_decimal": 58969
     }
   ]
 }

@@ -15,6 +15,9 @@ export const playerReducer = (state,action)=>{
         case 'closeFullPlayer':
             newState.playerFull = false
             break
+        case 'changeProgressWidth':
+            newState.progressWidth = action.value
+            break
         default:
             console.log('麻了')
             break

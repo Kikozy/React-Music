@@ -1,3 +1,7 @@
+@function pxToVw($px){
+    @return ($px/375)*100vw
+}
+
 .playerPage {
     position: fixed;
     top: 0;
@@ -6,37 +10,44 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: rgba(204, 204, 204, 0.8);
     * {
         box-sizing: border-box;
     }
     button {
         outline: 0;
         border: 0;
+        background-color: transparent;
     }
+    //头部区域
     .headArea {
         width: 100vw;
-        height: 30px;
+        height: pxToVw(40);
         display: flex;
+        //退出全屏播放按钮
         .closeFullPlayerBtn {
             background-color: red;
             height: 100%;
             width: 13.3333vw;
-
         }
+        //歌曲信息
         .songInfo {
             display: flex;
             flex-direction: column;
             height: 100%;
             width: 73.3333vw;
+            padding: pxToVw(5) 0;
+            //歌曲名字
             .songName {
                 color: white;
-                font-size: 16px;
+                font-size: pxToVw(16);
                 width: 100%;
                 text-align: center;
             }
+            //作者名字
             .songAuthor {
-                color: rgb(179, 176, 176);
-                font-size: 14px;
+                color: rgb(204, 26, 26);
+                font-size: pxToVw(14);
                 width: 100%;
                 text-align: center;
             }
@@ -47,17 +58,23 @@
             background-color: red;
         }
     }
+    //内容区域
     .content {
-        width: 100vw;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 0 pxToVw(12.5);
         display: flex;
         flex-direction: column;
         align-items: center;
         box-sizing: border-box;
-        padding: 0 3.3vw;
+        //歌曲的图片
         .songImgArea {
-            margin-top: 14.7777vh;
-            height: 74.6666vw;
-            width: 74.6666vw;
+            margin-top: pxToVw(50);
+            height: pxToVw(280);
+            width: pxToVw(280);
+            max-width: 1000px;
+            max-height: 1000px;
             border-radius: 50%;
             overflow: hidden;
             .songImg {
@@ -72,33 +89,38 @@
         .playAndPuaseBtn {
             height: 30px;
         }
-        //按钮区域
-        .btnArea {
-            margin-top: 100px;
-            button {
-                background-color: transparent;
-                color: white;
-                height: 28px;
-                width: 28px;
-                span {
-                    font-size: 28px;
+        //控制按钮区域
+        .controllerArea {
+            position: absolute;
+            bottom: pxToVw(20);
+            width: 100%;
+            padding: 0 pxToVw(12.5);
+            & > .topBtn {
+                padding: 0 pxToVw(40);
+                display: flex;
+                justify-content: space-between;
+                button {
+                    color: white;
+                    height: pxToVw(24);
+                    width: pxToVw(24);
+                    span {
+                        font-size: pxToVw(24);
+                    }
                 }
             }
-        }
-        //控制区域
-        .controllerArea {
-            width: 100%;
             //进度条区域
-            .progressBarArea {
+            & > .progressBarArea {
+                margin-top: pxToVw(10);
+                padding: 0 pxToVw(5);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 .nowTime {
                     color: white;
-                    font-size: 14px;
+                    font-size: pxToVw(12);
                 }
                 .progressBox {
-                    width: 260px;
+                    width: pxToVw(260);
                     height: 2px;
                     background-color: rgb(204, 201, 201);
                     .progressBar {
@@ -109,26 +131,35 @@
                 }
                 .totalTime {
                     color: white;
-                    font-size: 14px;
+                    font-size: pxToVw(12);
                 }
             }
-            //按钮区域
-            .btnArea {
+            //底部按钮区域
+            & > .bottomBtn {
+                margin-top: pxToVw(10);
+                padding: 0 pxToVw(35);
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 align-items: center;
                 button {
-                    width: 30px;
-                    height: 30px;
+                    width: pxToVw(24);
+                    height: pxToVw(24);
+                    span {
+                        font-size: pxToVw(24);
+                        color: white;
+                    }
                 }
                 .playBtn {
-                    width: 16vw;
-                    height: 7.3891vh;
+                    width: pxToVw(48);
+                    height: pxToVw(48);
                     border-radius: 50%;
-                    border: 0.6vw solid #ffffff;
+                    border: pxToVw(2.5) solid #ffffff;
+                    span {
+                        font-size: pxToVw(28);
+                    }
                 }
             }
         }
     }
-
 }
+

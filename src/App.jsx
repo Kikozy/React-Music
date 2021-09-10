@@ -12,9 +12,7 @@ const history = createBrowserHistory()
 
 function App() {
     const {playerState,playerDispatch} = usePlayerStore()
-    useEffect(()=>{
-        console.log(history)
-    },[])
+    useCreatd(playerDispatch)
     return(
         <div className="app">
             <main className='content'>
@@ -57,9 +55,29 @@ function usePlayerStore() {
             {name: '喵呜',link: 'http://uhv.demos.cn.vc/uploads/voices/20210811/fb9e03183f90f6f8e910b0ce8e8856ec.mp3'}
         ],
         //全屏播放器
-        playerFull: false
+        playerFull: false,
+        progressWidth: 0
     })
     return {playerState , playerDispatch}
+}
+function useCreatd(playerDispatch) {
+    useEffect(()=>{
+        audioDom.ontimeupdate = () => {
+            //获取一波当前的播放时间
+            let nowTime = parseInt(audioDom.currentTime)/audioDom.duration
+            playerDispatch({
+                name: 'changeProgressWidth',
+                value: (nowTime*100).toFixed(2)
+            })
+            //console.log((nowTime*100).toFixed(2))
+        }
+    },[])
+    useEffect(()=>{
+        audioDom.onended=()=>{
+            console.log('播放完毕')
+            audioDom.pause()
+        }
+    },[])
 }
 
 

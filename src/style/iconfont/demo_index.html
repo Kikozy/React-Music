@@ -53,6 +53,12 @@
           <ul class="icon_lists dib-box">
           
             <li class="dib">
+              <span class="icon iconfont">&#xe603;</span>
+                <div class="name">列表</div>
+                <div class="code-name">&amp;#xe603;</div>
+              </li>
+          
+            <li class="dib">
               <span class="icon iconfont">&#xe70a;</span>
                 <div class="name">铃声</div>
                 <div class="code-name">&amp;#xe70a;</div>
@@ -62,6 +68,12 @@
               <span class="icon iconfont">&#xe60d;</span>
                 <div class="name">留言</div>
                 <div class="code-name">&amp;#xe60d;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe60f;</span>
+                <div class="name">播放</div>
+                <div class="code-name">&amp;#xe60f;</div>
               </li>
           
             <li class="dib">
@@ -77,15 +89,33 @@
               </li>
           
             <li class="dib">
-              <span class="icon iconfont">&#xe60f;</span>
-                <div class="name">播放-通用</div>
-                <div class="code-name">&amp;#xe60f;</div>
+              <span class="icon iconfont">&#xe61f;</span>
+                <div class="name">循环</div>
+                <div class="code-name">&amp;#xe61f;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63e;</span>
+                <div class="name">下一曲</div>
+                <div class="code-name">&amp;#xe63e;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe63f;</span>
+                <div class="name">上一曲</div>
+                <div class="code-name">&amp;#xe63f;</div>
               </li>
           
             <li class="dib">
               <span class="icon iconfont">&#xe65a;</span>
                 <div class="name">暂停</div>
                 <div class="code-name">&amp;#xe65a;</div>
+              </li>
+          
+            <li class="dib">
+              <span class="icon iconfont">&#xe659;</span>
+                <div class="name">更多</div>
+                <div class="code-name">&amp;#xe659;</div>
               </li>
           
           </ul>
@@ -106,7 +136,7 @@
 <pre><code class="language-css"
 >@font-face {
   font-family: 'iconfont';
-  src: url('iconfont.ttf?t=1631180436900') format('truetype');
+  src: url('iconfont.ttf?t=1631241295305') format('truetype');
 }
 </code></pre>
           <h3 id="-iconfont-">第二步：定义使用 iconfont 的样式</h3>
@@ -133,6 +163,15 @@
         <ul class="icon_lists dib-box">
           
           <li class="dib">
+            <span class="icon iconfont icon-liebiao"></span>
+            <div class="name">
+              列表
+            </div>
+            <div class="code-name">.icon-liebiao
+            </div>
+          </li>
+          
+          <li class="dib">
             <span class="icon iconfont icon-icon--"></span>
             <div class="name">
               铃声
@@ -147,6 +186,15 @@
               留言
             </div>
             <div class="code-name">.icon-liuyan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon-icon_play"></span>
+            <div class="name">
+              播放
+            </div>
+            <div class="code-name">.icon-icon_play
             </div>
           </li>
           
@@ -169,11 +217,29 @@
           </li>
           
           <li class="dib">
-            <span class="icon iconfont icon-bofang-tongyong"></span>
+            <span class="icon iconfont icon-xunhuan"></span>
             <div class="name">
-              播放-通用
+              循环
             </div>
-            <div class="code-name">.icon-bofang-tongyong
+            <div class="code-name">.icon-xunhuan
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon-xiayiqu"></span>
+            <div class="name">
+              下一曲
+            </div>
+            <div class="code-name">.icon-xiayiqu
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon-shangyiqu"></span>
+            <div class="name">
+              上一曲
+            </div>
+            <div class="code-name">.icon-shangyiqu
             </div>
           </li>
           
@@ -183,6 +249,15 @@
               暂停
             </div>
             <div class="code-name">.icon-zantingtingzhi
+            </div>
+          </li>
+          
+          <li class="dib">
+            <span class="icon iconfont icon-caozuo"></span>
+            <div class="name">
+              更多
+            </div>
+            <div class="code-name">.icon-caozuo
             </div>
           </li>
           
@@ -215,6 +290,14 @@
           
             <li class="dib">
                 <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-liebiao"></use>
+                </svg>
+                <div class="name">列表</div>
+                <div class="code-name">#icon-liebiao</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
                   <use xlink:href="#icon-icon--"></use>
                 </svg>
                 <div class="name">铃声</div>
@@ -227,6 +310,14 @@
                 </svg>
                 <div class="name">留言</div>
                 <div class="code-name">#icon-liuyan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-icon_play"></use>
+                </svg>
+                <div class="name">播放</div>
+                <div class="code-name">#icon-icon_play</div>
             </li>
           
             <li class="dib">
@@ -247,10 +338,26 @@
           
             <li class="dib">
                 <svg class="icon svg-icon" aria-hidden="true">
-                  <use xlink:href="#icon-bofang-tongyong"></use>
+                  <use xlink:href="#icon-xunhuan"></use>
                 </svg>
-                <div class="name">播放-通用</div>
-                <div class="code-name">#icon-bofang-tongyong</div>
+                <div class="name">循环</div>
+                <div class="code-name">#icon-xunhuan</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-xiayiqu"></use>
+                </svg>
+                <div class="name">下一曲</div>
+                <div class="code-name">#icon-xiayiqu</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-shangyiqu"></use>
+                </svg>
+                <div class="name">上一曲</div>
+                <div class="code-name">#icon-shangyiqu</div>
             </li>
           
             <li class="dib">
@@ -259,6 +366,14 @@
                 </svg>
                 <div class="name">暂停</div>
                 <div class="code-name">#icon-zantingtingzhi</div>
+            </li>
+          
+            <li class="dib">
+                <svg class="icon svg-icon" aria-hidden="true">
+                  <use xlink:href="#icon-caozuo"></use>
+                </svg>
+                <div class="name">更多</div>
+                <div class="code-name">#icon-caozuo</div>
             </li>
           
           </ul>

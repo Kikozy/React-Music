@@ -1,12 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        html{
+            font-size: 1vw;
+        }
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .box {
+            width: 26.6666vw;
+            height: 14.99vh;
+            background-color: red;
+        }
+        .box2 {
+            background-color: pink;
+            margin-top: 14.99vh;
+            width: 26.6666vw;
+            height: 14.99vh;
+        }
+        .box3 {
+            background-color: pink;
+            margin-top: 14.99vh;
+            width: 26.6666vw;
+            height: 14.99vh;
+        }
+    </style>
 </head>
 <body>
-    <audio src="./public/Moonlike Smile.mp3" controls='controls'></audio>
+    <div class="box"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+    <script>
+        window.onresize=function(){
+            console.log((document.querySelector('.box2').clientHeight/document.documentElement.clientHeight*100).toFixed(2)+'%')
+        }
+    </script>
 </body>
 </html>
