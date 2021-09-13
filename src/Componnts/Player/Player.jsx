@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react'
+import { useContext, useEffect, useRef } from 'react'
 import { playerContent } from '../../App'
 import playerStyle from '../../style/module/player/player.module.scss'
 
@@ -7,12 +7,17 @@ import playerStyle from '../../style/module/player/player.module.scss'
 function Player() {
     const {audioDom,playerState,playerDispatch} = useContext(playerContent)
     const progressBox = useRef()
+    const playrPage = useRef()
     return(
-        <div className={playerStyle.playerPage} style={{display: playerState.playerFull?'flex':'none'}}>
+        <div ref={playrPage} className={playerStyle.playerPage} style={{display: playerState.playerFull?'flex':'none'}}>
             <header className={playerStyle.headArea}>
-                <button className={playerStyle.closeFullPlayerBtn} onClick={()=>playerDispatch({name: 'closeFullPlayer',value: false})}>V</button>
+                <button 
+                    className={playerStyle.closeFullPlayerBtn} 
+                    onClick={()=>closeFun(playrPage,playerDispatch)}>V</button>
                 <div className={playerStyle.songInfo}>
+                    {/* 歌曲名字 */}
                     <p className={playerStyle.songName}>{playerState.nowSong.name}</p>
+                    {/* 歌曲作者 */}
                     <p className={playerStyle.songAuthor}>{playerState.nowSong.author}</p>
                 </div>
                 <button className={playerStyle.fenxiangBtn}>我</button>
@@ -40,13 +45,12 @@ function Player() {
                         </button>
                     </div>
                     <div className={playerStyle.progressBarArea}>
-                        <div className={playerStyle.nowTime}>{parseInt(audioDom.currentTime)}</div>
+                        <div className={playerStyle.nowTime}>{secToTime(audioDom.currentTime)}</div>
                         
                         <div
                             ref={progressBox}
                             className={playerStyle.progressBox}
                             onClick={(e)=>{
-                                e.stopPropagation()
                                 tpMusicTime(e,progressBox,audioDom,playerDispatch)
                             }}    
                         >
@@ -56,7 +60,7 @@ function Player() {
                             ></div>
                         </div>
 
-                        <div className={playerStyle.totalTime}>{parseInt(audioDom.duration)}</div>
+                        <div className={playerStyle.totalTime}>{secToTime(audioDom.duration)}</div>
                     </div>
                     <div className={playerStyle.bottomBtn}>
                         {/* 循环播放 */}
@@ -90,14 +94,11 @@ function Player() {
     )
 }
 
-const tpMusicTime = async (e,progressBox,audioDom,playerDispatch)=> {    
+const tpMusicTime = async (e,progressBox,audioDom,playerDispatch)=> { 
     //鼠标点击的位置/盒子总长度 = 进度条百分比 然后 * 歌曲总时长 = 要跳转的时间
-    let tpTime = (e.clientX/progressBox.current.clientWidth)*audioDom.duration
-    
+    let tpTime = (e.nativeEvent.offsetX/progressBox.current.clientWidth)*audioDom.duration
     //计算进度条要显示的百分比
-    //let progressLoction = (tpTime/audioDom.duration*100).toFixed(2)
-    let progressLoction = (e.clientX/progressBox.current.clientWidth*100).toFixed(4)
-    console.log(e.target)
+    let progressLoction = (tpTime/audioDom.duration*100).toFixed(2)
     //改变进度条的显示进度
     playerDispatch({
         name: 'changeProgressWidth',
@@ -115,4 +116,30 @@ const play = (e,playerState,playerDispatch,audioDom) => {
     playerDispatch({name: 'changePlayState',value: !playerState.play})
 }
 
+const secToTime = (sec)=>{
+    let time = parseInt(sec)
+    let fen,miao
+    if(time<60){
+        fen = '00'
+        miao = time<10?`0${time}`:time
+    }else{
+        fen = (time/60)>=10?time:`0${parseInt(time/60)}`
+        miao = (time%60)>=10?time%60:`0${time%60}`
+    }
+    return fen+":"+miao
+}
+
+const closeFun = (playrPage,playerDispatch)=>{
+    playrPage.current.style.transform = 'translateY(100vh)'
+    setTimeout(() => {
+        playerDispatch({name: 'closeFullPlayer',value: false})
+        playrPage.current.style.transform = 'translateY(0)'
+    }, 600);
+}
+const openFun =(playrPage,playerDispatch)=>{
+    playrPage.current.style.transform = 'translateY(0)'
+    setTimeout(() => {
+        playerDispatch({name: 'closeFullPlayer',value: true})
+    }, 600);
+}
 export default Player

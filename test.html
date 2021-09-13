@@ -13,32 +13,35 @@
             padding: 0;
             margin: 0;
         }
-        .box {
-            width: 26.6666vw;
-            height: 14.99vh;
-            background-color: red;
+        input{
+
         }
-        .box2 {
-            background-color: pink;
-            margin-top: 14.99vh;
-            width: 26.6666vw;
-            height: 14.99vh;
-        }
-        .box3 {
-            background-color: pink;
-            margin-top: 14.99vh;
-            width: 26.6666vw;
-            height: 14.99vh;
+        @keyframes dh {
+            0% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="box"></div>
-    <div class="box2"></div>
-    <div class="box3"></div>
+    <input type="text">
+    <button onclick="sendText()">send</button>
     <script>
-        window.onresize=function(){
-            console.log((document.querySelector('.box2').clientHeight/document.documentElement.clientHeight*100).toFixed(2)+'%')
+        let socket = new WebSocket('ws://localhost:8911')
+        socket.addEventListener('open',()=>{
+            console.log('建立连接成功la')
+            
+        })
+        socket.addEventListener('message',(e)=>{
+            console.log(e.data)
+        })
+        function sendText(e){
+            socket.send(document.querySelector('input').value)
         }
     </script>
 </body>
